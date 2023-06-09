@@ -1,0 +1,11 @@
+runtime: python37
+service: panel
+entrypoint: gunicorn -b :$PORT main:app
+
+env_variables:
+  FLASK_APP: main.py
+  FLASK_ENV: production
+
+handlers:
+- url: /.*
+  script: auto
